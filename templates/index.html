@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Monopoly Man</title>
+
+    <link rel="stylesheet" href="static/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant&family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <img src="/static/images/monopolyman.PNG" alt="Monopolyman Logo">
+    <header>THE MONOPOLY SIMULATION</header>
+
+    <article>
+        <h1><em>This web app integrates a Python script to illustrate the theory that landing on some Monopoly squares is significantly more likely than others.</em></h1>
+
+        <div>
+            <p>The simulation rolls two six-sided die, then tracks the placement of one game piece around the board after each turn's rolls. It keeps account of the frequency at which each square is landed, then displays that frequency. It's like playing a game of monopoly by yourself where you get a certain number of turns.</p>
+        </div>
+
+        <div id="simulation">
+            <h2>Run a Simulation!</h2>
+
+            <form action="/submit" method="post" onsubmit="return validateForm()">
+                <label for="rollnumber">How many rolls?</label>
+                <input type="text" name="rollnumber" id="rollnumber" placeholder="max 100,000 rolls" required>
+                <input type="submit" id="submitbutton" value="Roll Dice!">
+            </form>
+        </div>
+
+        <div>
+            <h2>The Theory</h2>
+            <p>It all comes down to the dice. In Monopoly, you roll a pair of six-sided dice and add their totals to get the amount of spaces your piece will advance on the board. This makes the odds of rolling a given number skewed. For example, a sum of seven has a one in six chance of being rolled, while a sum of two has only a one in thirty-six chance. Using this idea, you can see the odds of rolling to a certain square on the first turn or two. And with rolls like sevens being more common than other rolls, you'll notice most games start with landing on the same few squares. Knowing this could give you a strategic advantage over your opponents! Find out more cool info on Monopoly probabilities <a href="https://www.thoughtco.com/probability-and-monopoly-3126560#:~:text=The%20probability%20of%20rolling%20a,36)%20%3D%204%2F1296.">here.</a></p>
+        </div>
+
+        <h2 id="resultstxt">Here are the results for ten million rolls:</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Rolls</th>
+                <th>% of Total</th>
+            </tr>
+            {% for roll in roll_table %}
+            <tr>
+                <td>{{ roll.name }}</td>
+                <td>{{ roll.color }}</td>
+                <td>{{ roll.roll_count }}</td>
+                <td>{{ "{:.2f}".format((roll.roll_count)/100000) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </article>
+    <footer>
+
+        <div class="container">
+            <p>&copy; 2023 Web Design Final Project by Olivia Giraldo</p>
+            <ul>
+            <li><a href="https://github.com/kobralily">Github</a></li>
+            <li><a href="https://oliviagiraldo.com">Personal Website</a></li>
+            <li><a href="https://www.linkedin.com/in/oliviamgiraldo/">LinkedIn</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+</body>
+
+<script>
+    function validateForm() {
+      var rollnumber = document.getElementById("rollnumber").value;
+      if (isNaN(rollnumber)) {
+        alert("Please enter a number");
+        return false;
+      }
+      return true;
+    }
+</script>
+
+</html>

@@ -1,0 +1,449 @@
+<!--Submission page that has simulation on it-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Monopoly Man</title>
+
+    <link rel="stylesheet" href="static/submit.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant&family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <img src="/static/images/monopolyman.PNG" alt="Monopolyman Logo">
+    <header>THE MONOPOLY SIMULATION</header>
+
+    <article>
+
+        <div id="board">
+            <div class="go square" id="s0"></div>
+            <div class="brown square" id="s1"></div>
+            <div class="chest square" id="s2"></div>
+            <div class="brown square" id="s3"></div>
+            <div class="income square" id="s4"></div>
+            <div class="railroad square" id="s5"></div>
+            <div class="aqua square" id="s6"></div>
+            <div class="chance square" id="s7"></div>
+            <div class="aqua square" id="s8"></div>
+            <div class="aqua square" id="s9"></div>
+            <div class="jail square" id="s10"></div>
+
+            <div class="blue square" id="s39"></div>
+            <div class="pink square" id="s11"></div>
+
+            <div class="luxury square" id="s38"></div>
+            <div class="utility square" id="s12"></div>
+
+            <div class="blue square" id="s37"></div>
+            <div class="pink square" id="s13"></div>
+
+            <div class="chance square" id="s36"></div>
+            <div class="pink square" id="s14"></div>
+
+            <div class="railroad square" id="s35"></div>
+            <div class="railroad square" id="s15"></div>
+
+            <div class="green square" id="s34"></div>
+            <div class="orange square" id="s16"></div>
+
+            <div class="chest square" id="s33"></div>
+            <div class="chest square" id="s17"></div>
+
+            <div class="green square" id="s32"></div>
+            <div class="orange square" id="s18"></div>
+
+            <div class="green square" id="s31"></div>
+            <div class="orange square" id="s19"></div>
+
+            <div class="gojail square" id="s30"></div>
+            <div class="yellow square" id="s29"></div>
+            <div class="utility square" id="s28"></div>
+            <div class="yellow square" id="s27"></div>
+            <div class="yellow square" id="s26"></div>
+            <div class="railroad square" id="s25"></div>
+            <div class="red square" id="s24"></div>
+            <div class="red square" id="s23"></div>
+            <div class="chance square" id="s22"></div>
+            <div class="red square" id="s21"></div>
+            <div class="park square" id="s20"></div>  
+        </div>
+
+        <!--The Game Board-->
+
+        <h1>You ran {{ listrolls|count }} rolls!</h1>
+        <p id="refresh">Refresh the page to run another set of rolls.</p>
+
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+
+        <div id="caption">
+            <p>The "Go to Jail" square does not have any rolls because as soon as you land there, you are transported to jail instead.</p>
+        </div>
+
+        <h2>Compare the types of squares</h2>
+
+        <form id="comparable">
+            <label for="choice1">Select Square Type 1:</label>
+            <select id="choice1" onchange="drawChart()">
+                <option value="">- Select -</option>
+                <option value="go">Go</option>
+                <option value="brown">Brown</option>
+                <option value="chest">Community Chests</option>
+                <option value="tax">Taxes</option>
+                <option value="railroad">Railroads</option>
+                <option value="aqua">Aqua</option>
+                <option value="chance">Chances</option>
+                <option value="jail">Jail</option>
+                <option value="pink">Pink</option>
+                <option value="orange">Orange</option>
+                <option value="freeParking">Free Parking</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="goJail">Go to Jail</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+
+            <label for="choice2">Select Square Type 2:</label>
+            <select id="choice2" onchange="drawChart()">
+                <option value="">- Select -</option>
+                <option value="go">Go</option>
+                <option value="brown">Brown</option>
+                <option value="chest">Community Chests</option>
+                <option value="tax">Taxes</option>
+                <option value="railroad">Railroads</option>
+                <option value="aqua">Aqua</option>
+                <option value="chance">Chances</option>
+                <option value="jail">Jail</option>
+                <option value="pink">Pink</option>
+                <option value="orange">Orange</option>
+                <option value="freeParking">Free Parking</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="goJail">Go to Jail</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+
+            <div id="chart-container"></div>
+        </form>
+
+        <form>
+            <button type="submit" id='homebutton' formaction="http://localhost:4999/">HOME</button> <!--change to new website home address-->
+        </form>
+        
+    </article>
+
+    <footer>
+
+        <div class="container">
+            <p>&copy; 2023 Web Design Final Project by Olivia Giraldo</p>
+            <ul>
+            <li><a href="https://github.com/kobralily">Github</a></li>
+            <li><a href="https://oliviagiraldo.com">Personal Website</a></li>
+            <li><a href="https://www.linkedin.com/in/oliviamgiraldo/">LinkedIn</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+</body>
+<!-- ------------------------------------ -->
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+
+
+    var rolls = "{{listrolls}}";
+    var rollsCount = "{{listrolls|count}}";
+    //console.log(rolls);
+    //console.log(rollsCount);
+
+    var rollsArray = JSON.parse(rolls)
+    console.log(rollsArray)
+    var count = {};
+    for (let i = 0; i < rollsArray.length; i++) {
+        var num = rollsArray[i];
+        if (count[num]) {
+            count[num]++;
+        } else {
+            count[num] = 1;
+        }
+    }
+    console.log(count);
+    var places = ['Go',
+    'Midterranean Avenue (Brown 1)',
+    'Community Chest 1',
+    'Saltic Avenue (Brown 2)',
+    'Income Tax',
+    'Roading Railroad (Railroad 1)',
+    'Foriental Avenue (Aqua 1)',
+    'Chance 1',
+    'Bermont Avenue (Aqua 2)',
+    'Conecititicitut Avenue (Aqua 3)',
+    'Jail',
+    'St. Barles Place (Pink 1)',
+    'Delectric Company (Utility 1)',
+    'Plates Avenue (Pink 2)',
+    'Birginia Avenue (Pink 3)',
+    'Bennsylvania Railroad (Railroad 2)',
+    'St. Brames Place (Orange 1)',
+    'Community Chest 2',
+    'Wennessee Avenue (Orange 2)',
+    'Yew Nork Avenue (Orange 3)',
+    'Free Parking',
+    'Bentucky Avenue (Red 1)',
+    'Chance 2',
+    'Bandiana Avenue (Red 2)',
+    'Billinois Avenue (Red 3)',
+    'O & B Railroad (Railroad 3)',
+    'Atlanta Avenue (Yellow 1)',
+    'Bentnor Avenue (Yellow 2)',
+    'Working Waters (Utility 2)',
+    'Marvin Nardens (Yellow 3)',
+    'Go to Jail',
+    'Dacific Avenue (Green 1)',
+    'Northern Caroline Avenue (Green 2)',
+    'Community Chest 3',
+    'Pencilvania Avenue (Green 3)',
+    'Shortish Line (Railroad 4)',
+    'Chance 3',
+    'Bark Place (Blue 1)',
+    'Luxury Tax',
+    'Boredwalk (Blue 2)']
+
+    var placesCount = [];
+
+    for (let i = 0; i < 40; i++) {
+        if (count.hasOwnProperty(i.toString())) {
+            placesCount.push(count[i.toString()]);
+        } else {
+            placesCount.push(0);
+        }
+    }
+    console.log(placesCount)
+
+    var go = placesCount[0];
+    var brown = placesCount[1] + placesCount[3];
+    var chest = placesCount[2] + placesCount[17] + placesCount[33];
+    var tax = placesCount[4] + placesCount[38];
+    var railroad = placesCount[5] + placesCount[15] + placesCount[25] + placesCount[35];
+    var aqua = placesCount[6] + placesCount[8] + placesCount[9];
+    var chance = placesCount[7] + placesCount[22] + placesCount[36];
+    var jail = placesCount[10];
+    var pink = placesCount[11] + placesCount[13] + placesCount[14];
+    var orange = placesCount[16] + placesCount[18] + placesCount[19];
+    var freeParking = placesCount[20];
+    var red = placesCount[21] + placesCount[23] + placesCount[24];
+    var yellow = placesCount[26] + placesCount[27] + placesCount[29];
+    var goJail = placesCount[30];
+    var green = placesCount[31] + placesCount[32] + placesCount[34];
+    var blue = placesCount[37] + placesCount[39];
+
+
+// ANIMATION JAVASCRIPT -----------------------------------
+
+// for (var i = 0; i < rollsArray.length; i++) {
+//   var square = document.getElementById("s" + rollsArray[i]); // get the square element
+//   square.style.opacity = 1; // set the opacity to 100%
+// }
+
+function animateSquares() {
+  var i = 0;
+  var interval = setInterval(function() {
+    var square = document.getElementById("s" + rollsArray[i]);
+    square.style.opacity = 1;
+    setTimeout(function() {
+      square.style.opacity = 0.4;
+    }, 200);
+    i++;
+    if (i >= rollsArray.length) {
+      clearInterval(interval);
+    }
+  }, 200); // 1000 milliseconds = 1 second
+}
+
+animateSquares();
+
+// for (var i = 0; i < rollsArray.length; i++) {
+//   var square = document.getElementById("s" + rollsArray[i]); // get the square element
+//   square.style.opacity = 1; // set the opacity to 100%
+  
+//   setTimeout(function() {
+//     square.style.opacity = 0.3; // set the opacity back to 0.3 after 1 second
+//   }, 1000); // delay the execution of the function by 1000 milliseconds (1 second)
+// }
+
+
+
+// COMPARISON HIGHCHARTSSSSSSSS -------------------------------
+    function drawChart() {
+
+        var choice1 = document.getElementById("choice1").value;
+        var choice2 = document.getElementById("choice2").value;
+
+        if (choice1 && choice2 && choice1 !== choice2) {
+
+            var data1 = getVariableData(choice1);
+            var data2 = getVariableData(choice2);
+            
+            var chartData = [{
+                name: 'Choice 1',
+                y: data1
+                }, {
+                name: 'Choice 2',
+                y: data2
+            }];
+
+            Highcharts.chart('chart-container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Square Type Comparison'
+                },
+                xAxis: {
+                    categories: ['Choice 1', 'Choice 2'],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                    text: 'Rolls'
+                    }
+                },
+                series: [{
+                    name: 'Rolls',
+                    data: [data1, data2]
+                }]
+            });
+
+        } else {
+            document.getElementById('chart-container').innerHTML = '';
+        }
+    }
+
+    function getVariableData(variable) {
+        switch (variable) {
+            case 'go':
+            return go;
+            case 'brown':
+            return brown;
+            case 'chest':
+            return chest;
+            case 'tax':
+            return tax;
+            case 'railroad':
+            return railroad;
+            case 'aqua':
+            return aqua;
+            case 'chance':
+            return chance;
+            case 'jail':
+            return jail;
+            case 'pink':
+            return pink;
+            case 'orange':
+            return orange;
+            case 'freeParking':
+            return freeParking;
+            case 'red':
+            return red;
+            case 'yellow':
+            return yellow;
+            case 'goJail':
+            return goJail;
+            case 'green':
+            return green;
+            case 'blue':
+            return blue;
+        }
+    }
+
+
+
+    //HIGHCHARTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS------------------------------------------
+    var colors = ['#8FE402', '#A74D1E', '#E4AF02', '#A74D1E', '#7E02E4','#3903E4', '#03CFE4', '#B882EC', '#03CFE4', '#03CFE4','#5E889D', '#FF9ACC', '#78A292', '#FF9ACC', '#FF9ACC','#3903E4', '#FF7F01', '#E4AF02', '#FF7F01', '#FF7F01','#01FFCE', '#E61111', '#B882EC', '#E61111', '#E61111','#3903E4', '#E7DA4F', '#E7DA4F', '#78A292', '#E7DA4F','#5E889D', '#1CBC13', '#1CBC13', '#E4AF02', '#1CBC13','#3903E4', '#B882EC', '#1D90E3', '#7E02E4', '#1D90E3']
+
+    Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Square Frequency',
+        align: 'left'
+    },
+    subtitle: {
+        text: 'Highcharts Graph',
+        align: 'left'
+    },
+    xAxis: {
+        categories: places,
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Rolls',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' rolls'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    // legend: {
+    //     layout: 'vertical',
+    //     align: 'right',
+    //     verticalAlign: 'top',
+    //     x: -40,
+    //     y: 80,
+    //     floating: true,
+    //     borderWidth: 1,
+    //     backgroundColor:
+    //         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+    //     shadow: true
+    // },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Your rolls',
+        data: placesCount,
+        data: placesCount.map((count, index) => ({
+            y: count,
+            color: colors[index % colors.length] // Assign a different color to each data point
+        }))
+    }]
+});
+
+
+
+
+</script>
+
+</html>
