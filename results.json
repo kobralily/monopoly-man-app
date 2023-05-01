@@ -1,86 +1,94 @@
 [
     {
-        "name": "Reading Railroad (Railroad 1)",
-        "num_rolls": 34
-    },
-    {
-        "name": "Marvin Gardens (Yellow 3)",
-        "num_rolls": 32
-    },
-    {
-        "name": "Atlantic Avenue (Yellow 1)",
-        "num_rolls": 31
-    },
-    {
-        "name": "Virginia Avenue (Pink 3)",
-        "num_rolls": 31
-    },
-    {
-        "name": "Indiana Avenue (Red 2)",
-        "num_rolls": 31
-    },
-    {
-        "name": "Connecticut Avenue (Aqua 3)",
-        "num_rolls": 29
-    },
-    {
-        "name": "St. Charles Place (Pink 1)",
-        "num_rolls": 28
-    },
-    {
-        "name": "New York Avenue (Orange 3)",
-        "num_rolls": 28
-    },
-    {
         "name": "B & O Railroad (Railroad 3)",
-        "num_rolls": 27
+        "num_rolls": 33
     },
     {
         "name": "St. James Place (Orange 1)",
-        "num_rolls": 27
+        "num_rolls": 33
     },
     {
-        "name": "Tennessee Avenue (Orange 2)",
-        "num_rolls": 27
+        "name": "Indiana Avenue (Red 2)",
+        "num_rolls": 29
     },
     {
-        "name": "Vermont Avenue (Aqua 2)",
-        "num_rolls": 26
-    },
-    {
-        "name": "Electric Company (Utility 1)",
-        "num_rolls": 26
+        "name": "New York Avenue (Orange 3)",
+        "num_rolls": 29
     },
     {
         "name": "Kentucky Avenue (Red 1)",
-        "num_rolls": 25
-    },
-    {
-        "name": "Park Place (Blue 1)",
-        "num_rolls": 25
+        "num_rolls": 29
     },
     {
         "name": "North Carolina Avenue (Green 2)",
-        "num_rolls": 24
+        "num_rolls": 28
     },
     {
-        "name": "Baltic Avenue (Brown 2)",
-        "num_rolls": 23
+        "name": "Tennessee Avenue (Orange 2)",
+        "num_rolls": 28
+    },
+    {
+        "name": "Marvin Gardens (Yellow 3)",
+        "num_rolls": 27
     },
     {
         "name": "Illinois Avenue (Red 3)",
-        "num_rolls": 23
+        "num_rolls": 27
+    },
+    {
+        "name": "Baltic Avenue (Brown 2)",
+        "num_rolls": 26
+    },
+    {
+        "name": "Short Line (Railroad 4)",
+        "num_rolls": 26
+    },
+    {
+        "name": "St. Charles Place (Pink 1)",
+        "num_rolls": 25
+    },
+    {
+        "name": "Connecticut Avenue (Aqua 3)",
+        "num_rolls": 25
+    },
+    {
+        "name": "Oriental Avenue (Aqua 1)",
+        "num_rolls": 24
+    },
+    {
+        "name": "Pacific Avenue (Green 1)",
+        "num_rolls": 24
+    },
+    {
+        "name": "Pennsylvania Avenue (Green 3)",
+        "num_rolls": 24
+    },
+    {
+        "name": "Mediterranean Avenue (Brown 1)",
+        "num_rolls": 24
+    },
+    {
+        "name": "Virginia Avenue (Pink 3)",
+        "num_rolls": 24
     },
     {
         "name": "Water Works (Utility 2)",
         "num_rolls": 23
     },
     {
-        "name": "Pennsylvania Avenue (Green 3)",
+        "name": "States Avenue (Pink 2)",
         "num_rolls": 22
     },
     {
-        "name": "Boardwalk (Blue 2)",
+        "name": "Atlantic Avenue (Yellow 1)",
+        "num_rolls": 20
+    },
+    {
+        "name": "Reading Railroad (Railroad 1)",
+        "num_rolls": 20
+    },
+    {
+        "name": "Vermont Avenue (Aqua 2)",
         "num_rolls": 20
     },
     {
@@ -88,27 +96,19 @@
         "num_rolls": 20
     },
     {
-        "name": "Pennsylvania Railroad (Railroad 2)",
+        "name": "Boardwalk (Blue 2)",
         "num_rolls": 19
     },
     {
-        "name": "States Avenue (Pink 2)",
-        "num_rolls": 19
-    },
-    {
-        "name": "Short Line (Railroad 4)",
+        "name": "Electric Company (Utility 1)",
         "num_rolls": 18
     },
     {
-        "name": "Oriental Avenue (Aqua 1)",
+        "name": "Park Place (Blue 1)",
+        "num_rolls": 18
+    },
+    {
+        "name": "Pennsylvania Railroad (Railroad 2)",
         "num_rolls": 17
-    },
-    {
-        "name": "Pacific Avenue (Green 1)",
-        "num_rolls": 16
-    },
-    {
-        "name": "Mediterranean Avenue (Brown 1)",
-        "num_rolls": 16
     }
 ]
